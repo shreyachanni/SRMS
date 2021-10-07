@@ -1,0 +1,66 @@
+﻿@model IEnumerable<SRM_MVC.Models.Result>
+
+@{
+    ViewData["Title"] = "GetResults";
+    Layout = "~/Views/Shared/AdminDashBoard.cshtml";
+}
+
+<h1>GetResults</h1>
+
+<p>
+    <a asp-action="AddResult" asp-controller="Result" method="get">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ResultId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SemesterId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ResultScore)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ResultStatus)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ResultId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SemesterId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ResultScore)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ResultStatus)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.ResultId  }) |
+                @Html.ActionLink("Details", "Get", new { id = item.ResultId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ResultId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

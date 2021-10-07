@@ -1,0 +1,83 @@
+﻿@model SRM_MVC.Models.Student
+
+@{
+    ViewData["Title"] = "AddStudent";
+    Layout = "~/Views/Shared/AdminDashBoard.cshtml";
+}
+
+<h1>AddStudent</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddStudent">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*<div class="form-group"  >
+            <label asp-for="StudentId" class="control-label"></label>
+            <input asp-for="StudentId" class="form-control" />
+            <span asp-validation-for="StudentId" class="text-danger"></span>
+        </div>*@
+
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StudentEmail" class="control-label"></label>
+                <input asp-for="StudentEmail" class="form-control" />
+                <span asp-validation-for="StudentEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StudentGender" class="control-label"></label>
+                <input asp-for="StudentGender" class="form-control" />
+                <span asp-validation-for="StudentGender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StudentPassword" class="control-label"></label>
+                <input asp-for="StudentPassword" class="form-control"  type="password"/>
+                <span asp-validation-for="StudentPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.CoId, "Course", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(x => Model.CoId, new SelectList(ViewBag.courseslist, "Value", "Text"), htmlAttributes: new { @class = "form-control", id = "Country" })
+                    @Html.ValidationMessageFor(model => model.CoId, "", new { @class = "text-danger" })
+                </div>
+            </div> <div class="form-group">
+                @Html.LabelFor(model => model.SemId, "Semester", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(x => Model.SemId, new SelectList(ViewBag.semlist, "Value", "Text"), htmlAttributes: new { @class = "form-control", id = "Country" })
+                    @Html.ValidationMessageFor(model => model.SemId, "", new { @class = "text-danger" })
+                </div>
+            </div> <div class="form-group">
+                @Html.LabelFor(model => model.BrId, "Branch", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(x => Model.BrId, new SelectList(ViewBag.brlist, "Value", "Text"), htmlAttributes: new { @class = "form-control", id = "Country" })
+                    @Html.ValidationMessageFor(model => model.BrId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add student " class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@*<div>
+    <a asp-action="Index">Back to List</a>
+</div>*@
+
+@*@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}*@
